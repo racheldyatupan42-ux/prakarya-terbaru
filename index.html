@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif - Kegiatan Ekonomi | SMAN 46 Maluku Tengah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1E40AF',
+                            teal: '#0D9488',
+                            orange: '#F97316',
+                            green: '#10B981',
+                            lightBg: '#F0F9FF',
+                            accent: '#F59E0B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        cursive: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header id="main-header" class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading font-bold text-slate-800 text-lg leading-tight">EKONOMI KELAS X</h1>
+                    <p class="text-xs text-brand-teal font-medium">SMAN 46 Maluku Tengah</p>
+                </div>
+            </div>
+            
+            <!-- Progress Bar Indicator -->
+            <div class="hidden md:flex flex-col items-end w-48">
+                <div class="flex justify-between w-full text-xs font-semibold text-slate-500 mb-1">
+                    <span>Kemajuan Belajar</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-brand-green h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- Home Button -->
+            <button onclick="navTo('menu')" class="flex items-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-semibold transition">
+                <i class="fa-solid fa-house"></i>
+                <span class="hidden sm:inline">Menu Utama</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- ================= HALAMAN 1: PEMBUKA / HERO ================= -->
+        <section id="sec-hero" class="space-y-6 my-auto">
+            <div class="bg-gradient-to-br from-blue-900 via-brand-blue to-teal-700 rounded-3xl text-white p-6 sm:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Background Decorative Circles -->
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-orange/20 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase">
+                            <i class="fa-solid fa-graduation-cap text-yellow-300"></i>
+                            <span>Media Pembelajaran Interaktif Digital</span>
+                        </div>
+                        <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                            KEGIATAN EKONOMI <br>
+                            <span class="text-yellow-400">PRODUKSI, DISTRIBUSI & KONSUMSI</span>
+                        </h1>
+                        <p class="text-blue-100 text-base sm:text-lg max-w-xl leading-relaxed">
+                            Jelajahi konsep dasar kegiatan ekonomi dan bagaimana masyarakat Maluku Tengah memproduksi, menyalurkan, serta mengonsumsi barang & jasa sehari-hari.
+                        </p>
+                        
+                        <!-- Teacher Info Badge -->
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 inline-block w-full sm:w-auto">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-orange flex items-center justify-center font-bold text-white text-lg shadow">
+                                    RN
+                                </div>
+                                <div>
+                                    <p class="text-xs text-blue-200">Guru Mata Pelajaran Ekonomi:</p>
+                                    <p class="font-semibold text-white">Racheldya Nasmary Tupan, S.Pd.</p>
+                                    <p class="text-xs text-yellow-300 font-medium">SMA Negeri 46 Maluku Tengah</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button onclick="startApp()" class="w-full sm:w-auto bg-brand-orange hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg hover:shadow-orange-500/40 transform hover:-translate-y-1 transition duration-200 flex items-center justify-center space-x-3">
+                                <span>Mulai Belajar Now</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Graphic Illustration -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm bg-white/10 p-6 rounded-3xl border border-white/20 shadow-inner backdrop-blur-sm text-center">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white text-slate-800 p-4 rounded-2xl shadow-lg flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-2">
+                                        <i class="fa-solid fa-industry"></i>
+                                    </div>
+                                    <span class="font-bold text-sm">Produksi</span>
+                                    <span class="text-xs text-slate-500">Pembuatan Sagu & Ikan</span>
+                                </div>
+                                <div class="bg-white text-slate-800 p-4 rounded-2xl shadow-lg flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-teal-100 text-brand-teal rounded-xl flex items-center justify-center text-2xl mb-2">
+                                        <i class="fa-solid fa-truck-fast"></i>
+                                    </div>
+                                    <span class="font-bold text-sm">Distribusi</span>
+                                    <span class="text-xs text-slate-500">Perdagangan Laut</span>
+                                </div>
+                                <div class="bg-white text-slate-800 p-4 rounded-2xl shadow-lg flex flex-col items-center col-span-2">
+                                    <div class="w-12 h-12 bg-orange-100 text-brand-orange rounded-xl flex items-center justify-center text-2xl mb-2">
+                                        <i class="fa-solid fa-basket-shopping"></i>
+                                    </div>
+                                    <span class="font-bold text-sm">Konsumsi</span>
+                                    <span class="text-xs text-slate-500">Pemenuhan Kebutuhan Masyarakat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN 2: MENU UTAMA ================= -->
+        <section id="sec-menu" class="hidden space-y-6">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Dashboard Pembelajaran</span>
+                <h2 class="font-heading font-extrabold text-3xl text-slate-800">Pilih Menu Pembelajaran</h2>
+                <p class="text-slate-600 text-sm">Silakan pilih tahapan modul di bawah ini untuk memulai belajar secara interaktif.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Petunjuk -->
+                <div onclick="navTo('petunjuk')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-blue-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-blue-50 group-hover:bg-brand-blue text-brand-blue group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">1. Petunjuk Penggunaan</h3>
+                        <p class="text-slate-500 text-sm">Panduan tata cara menggunakan media interaktif ini dengan mudah.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-brand-blue font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Buka Petunjuk</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2: Tujuan -->
+                <div onclick="navTo('tujuan')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-teal-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-teal-50 group-hover:bg-brand-teal text-brand-teal group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">2. Tujuan Pembelajaran</h3>
+                        <p class="text-slate-500 text-sm">Capaian dan indikator kemampuan yang akan diperoleh peserta didik.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-brand-teal font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Lihat Capaian</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3: Materi -->
+                <div onclick="navTo('materi')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-blue-400 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-blue-100 group-hover:bg-blue-600 text-blue-600 group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">3. Materi Pembelajaran</h3>
+                        <p class="text-slate-500 text-sm">Konsep Produksi, Distribusi, Konsumsi, Pelaku Ekonomi, & Studi Kasus.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Pelajari Materi</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ekonomi Maluku Tengah -->
+                <div onclick="navTo('lokal')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-emerald-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-emerald-50 group-hover:bg-brand-green text-brand-green group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">4. Ekonomi Maluku Tengah</h3>
+                        <p class="text-slate-500 text-sm">Contoh nyata pengolahan sagu, perikanan laut, & pasar di Maluku Tengah.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-brand-green font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Eksplorasi Lokal</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 5: Game Edukasi -->
+                <div onclick="navTo('aktivitas')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-orange-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-orange-50 group-hover:bg-brand-orange text-brand-orange group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">5. Game Edukasi</h3>
+                        <p class="text-slate-500 text-sm">Game pengelompokan kegiatan, tebak gambar, & simulasi rantai barang.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-brand-orange font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Mainkan Game</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 6: Kuis & Evaluasi -->
+                <div onclick="navTo('kuis')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-purple-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-purple-50 group-hover:bg-purple-600 text-purple-600 group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-clipboard-question"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">6. Kuis & Evaluasi</h3>
+                        <p class="text-slate-500 text-sm">15 Soal Pilihan Ganda Berbasis Literasi/Numerasi dengan Nilai Otomatis.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-purple-600 font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Mulai Kuis</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 7: LKPD -->
+                <div onclick="navTo('lkpd')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-indigo-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-indigo-50 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-file-pen"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">7. LKPD Digital</h3>
+                        <p class="text-slate-500 text-sm">Lembar Kerja Peserta Didik berbasis studi kasus analisis kelompok.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-indigo-600 font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Buka LKPD</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 8: Refleksi Pembelajaran -->
+                <div onclick="navTo('refleksi')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-amber-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-amber-50 group-hover:bg-amber-500 text-amber-600 group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">8. Refleksi Pembelajaran</h3>
+                        <p class="text-slate-500 text-sm">Tinjau pemahaman baru dan penerapan dalam kehidupan sehari-hari.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-amber-600 font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Isi Refleksi</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Card 9: Hasil Belajar & Sertifikat -->
+                <div onclick="navTo('hasil')" class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-rose-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 bg-rose-50 group-hover:bg-rose-600 text-rose-600 group-hover:text-white rounded-2xl flex items-center justify-center text-2xl transition duration-300 shadow-sm">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800">9. Hasil & Sertifikat</h3>
+                        <p class="text-slate-500 text-sm">Lihat rekapitulasi nilai evaluasi dan cetak Sertifikat Pembelajaran.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-rose-600 font-semibold text-sm group-hover:translate-x-1 transition">
+                        <span>Cetak Sertifikat</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: PETUNJUK PENGGUNAAN ================= -->
+        <section id="sec-petunjuk" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <h2 class="font-heading font-bold text-2xl text-slate-800">Petunjuk Penggunaan Media</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 text-slate-700">
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
+                        <div class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Gunakan Navigasi Menu</h4>
+                            <p class="text-sm">Klik tombol pada Dashboard Menu Utama untuk berpindah dari satu modul ke modul pembelajaran lainnya.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
+                        <div class="w-8 h-8 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Pelajari Materi Berurutan</h4>
+                            <p class="text-sm">Disarankan mempelajari materi umum terlebih dahulu sebelum eksplorasi studi kasus Maluku Tengah.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
+                        <div class="w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Coba Permainan Edukatif</h4>
+                            <p class="text-sm">Uji pemahaman awal Anda melalui simulasi pengelompokan dan tebak gambar pada Aktivitas Interaktif.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Kerjakan LKPD & Evaluasi</h4>
+                            <p class="text-sm">Jawab LKPD serta 15 soal evaluasi untuk melihat skor otomatis, pembahasan, dan sertifikat kelulusan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-4">
+                    <button onclick="navTo('menu')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Menu
+                    </button>
+                    <button onclick="navTo('tujuan')" class="bg-brand-blue hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Lanjut ke Tujuan <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: TUJUAN PEMBELAJARAN ================= -->
+        <section id="sec-tujuan" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-teal-100 text-brand-teal rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h2 class="font-heading font-bold text-2xl text-slate-800">Tujuan Pembelajaran</h2>
+                </div>
+
+                <p class="text-slate-600 text-sm">Setelah menyelesaikan pembelajaran interaktif ini, peserta didik kelas X SMA diharapkan mampu:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-brand-blue mt-1"></i>
+                        <span class="text-slate-700 font-medium text-sm">Menjelaskan pengertian kegiatan ekonomi secara komprehensif.</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-teal-50/50 border border-teal-100 flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-brand-teal mt-1"></i>
+                        <span class="text-slate-700 font-medium text-sm">Mengidentifikasi kegiatan produksi, distribusi, dan konsumsi dengan tepat.</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-amber-50/50 border border-amber-100 flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-amber-600 mt-1"></i>
+                        <span class="text-slate-700 font-medium text-sm">Menjelaskan tujuan dan faktor-faktor yang memengaruhi kegiatan ekonomi.</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-orange-50/50 border border-orange-100 flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-brand-orange mt-1"></i>
+                        <span class="text-slate-700 font-medium text-sm">Mengidentifikasi peran produsen, distributor, dan konsumen.</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100 flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                        <span class="text-slate-700 font-medium text-sm">Menganalisis hubungan timbal balik antara produksi, distribusi, dan konsumsi.</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-purple-50/50 border border-purple-100 flex items-start space-x-3">
+                        <i class="fa-solid fa-circle-check text-purple-600 mt-1"></i>
+                        <span class="text-slate-700 font-medium text-sm">Memberikan contoh konkret kegiatan ekonomi di lingkungan sekitar Maluku Tengah.</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-4">
+                    <button onclick="navTo('petunjuk')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Petunjuk
+                    </button>
+                    <button onclick="navTo('materi')" class="bg-brand-blue hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Pelajari Materi <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: MATERI PEMBELAJARAN ================= -->
+        <section id="sec-materi" class="hidden space-y-6">
+            <!-- Tabs Navigation for Material Sub-topics -->
+            <div class="flex overflow-x-auto space-x-2 bg-white p-2 rounded-2xl shadow-sm border border-slate-200 custom-scrollbar">
+                <button onclick="switchTab('tab-konsep')" id="btn-tab-konsep" class="tab-btn bg-brand-blue text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">A. Pengertian</button>
+                <button onclick="switchTab('tab-produksi')" id="btn-tab-produksi" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">B. Produksi</button>
+                <button onclick="switchTab('tab-distribusi')" id="btn-tab-distribusi" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">C. Distribusi</button>
+                <button onclick="switchTab('tab-konsumsi')" id="btn-tab-konsumsi" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">D. Konsumsi</button>
+                <button onclick="switchTab('tab-pelaku')" id="btn-tab-pelaku" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">E. Pelaku Ekonomi</button>
+                <button onclick="switchTab('tab-hubungan')" id="btn-tab-hubungan" class="tab-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">F. Rantai Hubungan</button>
+            </div>
+
+            <!-- TAB A: Pengertian -->
+            <div id="tab-konsep" class="tab-content bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <h3 class="font-heading font-bold text-2xl text-brand-blue">A. Pengertian Kegiatan Ekonomi</h3>
+                <p class="text-slate-700 leading-relaxed">
+                    <strong>Kegiatan Ekonomi</strong> adalah seluruh aktivitas atau kegiatan yang dilakukan oleh manusia untuk memenuhi berbagai kebutuhan hidupnya yang beranekaragam dengan memanfaatkan sumber daya yang terbatas.
+                </p>
+                <div class="bg-blue-50 border-l-4 border-brand-blue p-4 rounded-r-2xl">
+                    <p class="text-sm text-blue-900">
+                        <i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>
+                        <strong>Inti Masalah Ekonomi:</strong> Kebutuhan manusia bersifat <em>tidak terbatas</em>, sedangkan alat pemuas kebutuhan (barang dan jasa) bersifat <em>terbatas</em>. Oleh karena itu, kegiatan ekonomi sangat penting!
+                    </p>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-4 pt-2">
+                    <div class="text-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <div class="text-3xl text-brand-blue mb-2"><i class="fa-solid fa-hammer"></i></div>
+                        <h4 class="font-bold text-slate-800 text-sm">Produksi</h4>
+                        <p class="text-xs text-slate-500">Menghasilkan / Menambah Nilai Guna</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <div class="text-3xl text-brand-teal mb-2"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                        <h4 class="font-bold text-slate-800 text-sm">Distribusi</h4>
+                        <p class="text-xs text-slate-500">Menyalurkan Barang/Jasa</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <div class="text-3xl text-brand-orange mb-2"><i class="fa-solid fa-utensils"></i></div>
+                        <h4 class="font-bold text-slate-800 text-sm">Konsumsi</h4>
+                        <p class="text-xs text-slate-500">Menggunakan / Mengurangi Nilai Guna</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB B: Produksi -->
+            <div id="tab-produksi" class="tab-content hidden bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <h3 class="font-heading font-bold text-2xl text-brand-blue">B. Kegiatan Produksi</h3>
+                <p class="text-slate-700 leading-relaxed">
+                    <strong>Produksi</strong> adalah kegiatan menciptakan atau menambah nilai guna (utility) suatu barang atau jasa sehingga lebih bermanfaat untuk memenuhi kebutuhan manusia. Orang/pihak yang melakukan kegiatan produksi disebut <strong>Produsen</strong>.
+                </p>
+                
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-800">Faktor-Faktor Produksi:</h4>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="font-bold text-brand-blue text-sm">1. Alam (SDA)</span>
+                            <p class="text-xs text-slate-600 mt-1">Lahan, laut, tambang, hutan, air (contoh: pohon sagu & hasil laut Maluku).</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="font-bold text-brand-blue text-sm">2. Tenaga Kerja (SDM)</span>
+                            <p class="text-xs text-slate-600 mt-1">Tenaga kerja terdidik, terlatih, maupun tidak terdidik/terlatih.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="font-bold text-brand-blue text-sm">3. Modal (Capital)</span>
+                            <p class="text-xs text-slate-600 mt-1">Mesin, perahu/kapil nelayan, uang, perlengkapan pabrik.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="font-bold text-brand-blue text-sm">4. Kewirausahaan (Skill)</span>
+                            <p class="text-xs text-slate-600 mt-1">Keahlian mengelola dan mengombinasikan ketiga faktor produksi di atas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB C: Distribusi -->
+            <div id="tab-distribusi" class="tab-content hidden bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <h3 class="font-heading font-bold text-2xl text-brand-teal">C. Kegiatan Distribusi</h3>
+                <p class="text-slate-700 leading-relaxed">
+                    <strong>Distribusi</strong> adalah kegiatan menyalurkan barang atau jasa hasil produksi dari produsen kepada konsumen. Pihak yang melakukan kegiatan distribusi disebut <strong>Distributor</strong>.
+                </p>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-800">Saluran Distribusi:</h4>
+                    <div class="space-y-2">
+                        <div class="p-3 bg-teal-50 rounded-xl border border-teal-100 flex items-center justify-between text-xs sm:text-sm">
+                            <span class="font-bold text-teal-900">1. Distribusi Langsung:</span>
+                            <span>Produsen &rarr; Konsumen (Contoh: Petani menjual sagu langsung di pasar lokal)</span>
+                        </div>
+                        <div class="p-3 bg-teal-50 rounded-xl border border-teal-100 flex items-center justify-between text-xs sm:text-sm">
+                            <span class="font-bold text-teal-900">2. Distribusi Semilangsung:</span>
+                            <span>Produsen &rarr; Toko Milik Produsen &rarr; Konsumen</span>
+                        </div>
+                        <div class="p-3 bg-teal-50 rounded-xl border border-teal-100 flex items-center justify-between text-xs sm:text-sm">
+                            <span class="font-bold text-teal-900">3. Distribusi Tidak Langsung:</span>
+                            <span>Produsen &rarr; Agen / Pedagang Besar &rarr; Pengecer &rarr; Konsumen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB D: Konsumsi -->
+            <div id="tab-konsumsi" class="tab-content hidden bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <h3 class="font-heading font-bold text-2xl text-brand-orange">D. Kegiatan Konsumsi</h3>
+                <p class="text-slate-700 leading-relaxed">
+                    <strong>Konsumsi</strong> adalah kegiatan mengurangi atau menghabiskan nilai guna suatu barang/jasa untuk memenuhi kebutuhan hidup secara langsung. Orang/lembaga yang mengonsumsi disebut <strong>Konsumen</strong>.
+                </p>
+
+                <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100">
+                    <h4 class="font-bold text-brand-orange text-sm mb-2">Faktor yang Memengaruhi Konsumsi:</h4>
+                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1">
+                        <li>Besarnya pendapatan masyarakat</li>
+                        <li>Tingkat harga barang dan jasa</li>
+                        <li>Gaya hidup, selera, dan tradisi lokal</li>
+                        <li>Jumlah anggota keluarga</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TAB E: Pelaku Ekonomi -->
+            <div id="tab-pelaku" class="tab-content hidden bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <h3 class="font-heading font-bold text-2xl text-purple-700">E. Pelaku Kegiatan Ekonomi</h3>
+                <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 bg-purple-50 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-purple-900">1. Rumah Tangga Konsumen (RTK)</h4>
+                        <p class="text-slate-600 mt-1">Pemilik faktor produksi & pengonsumsi barang/jasa.</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-purple-900">2. Rumah Tangga Produsen (RTP)</h4>
+                        <p class="text-slate-600 mt-1">Perusahaan/usaha yang menghasilkan produk & membayar sewa/gaji.</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-purple-900">3. Rumah Tangga Pemerintah (RTG)</h4>
+                        <p class="text-slate-600 mt-1">Pengatur/regulator ekonomi, pemungut pajak, & penyedia fasilitas umum.</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-purple-900">4. Masyarakat Luar Negeri (RTLN)</h4>
+                        <p class="text-slate-600 mt-1">Mitra ekspor dan impor barang maupun jasa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB F: Hubungan -->
+            <div id="tab-hubungan" class="tab-content hidden bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <h3 class="font-heading font-bold text-2xl text-emerald-600">F. Hubungan Antar Kegiatan Ekonomi</h3>
+                <p class="text-slate-700 text-sm">
+                    Ketiga kegiatan ekonomi saling bergantung satu sama lain secara kontinu dan melingkar (Circular Flow).
+                </p>
+                <div class="p-6 bg-emerald-50 rounded-2xl border border-emerald-100 text-center space-y-4">
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                        <div class="bg-white px-4 py-2 rounded-xl shadow font-bold text-brand-blue">PRODUKSI</div>
+                        <div class="text-emerald-600 font-bold"><i class="fa-solid fa-arrow-right sm:inline hidden"></i><i class="fa-solid fa-arrow-down sm:hidden block"></i></div>
+                        <div class="bg-white px-4 py-2 rounded-xl shadow font-bold text-brand-teal">DISTRIBUSI</div>
+                        <div class="text-emerald-600 font-bold"><i class="fa-solid fa-arrow-right sm:inline hidden"></i><i class="fa-solid fa-arrow-down sm:hidden block"></i></div>
+                        <div class="bg-white px-4 py-2 rounded-xl shadow font-bold text-brand-orange">KONSUMSI</div>
+                    </div>
+                    <p class="text-xs text-slate-600">
+                        Barang diproduksi &rarr; disalurkan oleh distributor &rarr; dikonsumsi konsumen. Uang dari konsumen kembali ke produsen untuk proses produksi baru.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="navTo('menu')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Menu Utama
+                </button>
+                <button onclick="navTo('lokal')" class="bg-brand-green hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                    Eksplorasi Maluku Tengah <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: KONTEKS LOKAL MALUKU TENGAH ================= -->
+        <section id="sec-lokal" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-emerald-100 text-brand-green rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-2xl text-slate-800">Kegiatan Ekonomi di Maluku Tengah</h2>
+                        <p class="text-xs text-brand-green font-semibold">Kearifan Lokal & Studi Kasus Konkret Lingkungan Sekitar</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Case 1: Sagu -->
+                    <div class="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100 space-y-3">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-wheat-awn"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800">1. Pengolahan Sagu & Kelapa</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Produksi:</strong> Petani di negeri-negeri Maluku Tengah mengolah batang sagu menjadi pati sagu atau sagu lempeng dan mengeringkan kelapa menjadi kopra.
+                        </p>
+                    </div>
+
+                    <!-- Case 2: Perikanan -->
+                    <div class="bg-blue-50/50 p-5 rounded-2xl border border-blue-100 space-y-3">
+                        <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-fish font-bold"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800">2. Tangkapan Laut & Pengolahan Ikan</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Produksi & Pengolahan:</strong> Nelayan melaut menangkap ikan cakalang/tuna, lalu sebagian diolah menjadi ikan asin atau ikan asar.
+                        </p>
+                    </div>
+
+                    <!-- Case 3: Perdagangan -->
+                    <div class="bg-orange-50/50 p-5 rounded-2xl border border-orange-100 space-y-3">
+                        <div class="w-12 h-12 bg-orange-100 text-brand-orange rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800">3. Pasar Tradisional & Laut</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Distribusi & Konsumsi:</strong> Pedagang mengangkut ikan dan hasil bumi menggunakan bodi/perahu ke Pasar Masohi untuk dibeli oleh masyarakat.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case Study Box -->
+                <div class="bg-slate-900 text-white p-6 rounded-2xl space-y-3">
+                    <span class="bg-yellow-400 text-slate-900 text-xs font-bold px-2.5 py-1 rounded">Studi Kasus Sederhana</span>
+                    <h4 class="font-bold text-lg">Perjalanan Popeda di Meja Makan</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        "Pak Usman di Seram Selatan menumpuk pati sagu (Produksi). Pedagang keliling membeli sagu tersebut dan membawanya menggunakan kapal ketinting ke Pasar Masohi (Distribusi). Ibu Maria membeli sagu tersebut di pasar untuk dimasak menjadi popeda lezat bagi keluarganya (Konsumsi)."
+                    </p>
+                </div>
+
+                <div class="flex justify-between items-center pt-2">
+                    <button onclick="navTo('materi')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Materi
+                    </button>
+                    <button onclick="navTo('aktivitas')" class="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Mainkan Game Edukasi <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: GAME EDUKASI / AKTIVITAS INTERAKTIF ================= -->
+        <section id="sec-aktivitas" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-orange-100 text-brand-orange rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-2xl text-slate-800">Game Edukasi Kegiatan Ekonomi</h2>
+                        <p class="text-xs text-slate-500">Uji pemahamanmu secara interaktif melalui permainan!</p>
+                    </div>
+                </div>
+
+                <!-- Mini Game 1: Match & Categorize -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 text-lg flex items-center">
+                        <i class="fa-solid fa-puzzle-piece text-brand-orange mr-2"></i>
+                        Permainan 1: Kelompokkan Aktivitas Ekonomi!
+                    </h3>
+                    <p class="text-xs text-slate-600">Klik item di bawah ini lalu tentukan apakah termasuk kegiatan <strong>Produksi</strong>, <strong>Distribusi</strong>, atau <strong>Konsumsi</strong>.</p>
+
+                    <!-- Game Area -->
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <!-- Bucket Produksi -->
+                        <div id="drop-produksi" class="bg-blue-50 border-2 border-dashed border-blue-300 rounded-2xl p-4 min-h-[160px] flex flex-col items-center">
+                            <span class="font-bold text-blue-900 text-sm mb-2"><i class="fa-solid fa-industry mr-1"></i> PRODUKSI</span>
+                            <div id="box-produksi" class="w-full space-y-2 flex-grow"></div>
+                        </div>
+                        <!-- Bucket Distribusi -->
+                        <div id="drop-distribusi" class="bg-teal-50 border-2 border-dashed border-teal-300 rounded-2xl p-4 min-h-[160px] flex flex-col items-center">
+                            <span class="font-bold text-teal-900 text-sm mb-2"><i class="fa-solid fa-truck mr-1"></i> DISTRIBUSI</span>
+                            <div id="box-distribusi" class="w-full space-y-2 flex-grow"></div>
+                        </div>
+                        <!-- Bucket Konsumsi -->
+                        <div id="drop-konsumsi" class="bg-orange-50 border-2 border-dashed border-orange-300 rounded-2xl p-4 min-h-[160px] flex flex-col items-center">
+                            <span class="font-bold text-orange-900 text-sm mb-2"><i class="fa-solid fa-utensils mr-1"></i> KONSUMSI</span>
+                            <div id="box-konsumsi" class="w-full space-y-2 flex-grow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Items Source Pool -->
+                    <div id="game-items-pool" class="bg-slate-100 p-4 rounded-2xl flex flex-wrap gap-2 justify-center">
+                        <!-- Items rendered by JS -->
+                    </div>
+
+                    <div id="game-feedback" class="hidden p-3 rounded-xl text-center text-sm font-bold"></div>
+                </div>
+
+                <div class="flex justify-between items-center pt-4">
+                    <button onclick="navTo('lokal')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Maluku Tengah
+                    </button>
+                    <button onclick="navTo('kuis')" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Lanjut ke Kuis & Evaluasi <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: KUIS DAN EVALUASI ================= -->
+        <section id="sec-kuis" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <!-- Header Kuis -->
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-clipboard-question"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-heading font-bold text-xl text-slate-800">Kuis & Evaluasi Pembelajaran</h2>
+                            <p class="text-xs text-slate-500">15 Soal Pilihan Ganda (Literasi & Numerasi)</p>
+                        </div>
+                    </div>
+                    <div id="quiz-timer" class="bg-purple-50 text-purple-700 px-3 py-1.5 rounded-xl font-bold text-xs">
+                        Soal <span id="current-q-num">1</span> / 15
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-body" class="space-y-6">
+                    <!-- Question Card -->
+                    <div class="space-y-3">
+                        <p id="quiz-question-text" class="font-medium text-slate-800 text-base sm:text-lg leading-relaxed">
+                            Loading pertanyaan...
+                        </p>
+                    </div>
+
+                    <!-- Options Grid -->
+                    <div id="quiz-options-container" class="grid gap-3">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Quiz Navigation Control -->
+                    <div class="flex justify-between items-center pt-4">
+                        <button id="btn-prev-q" onclick="prevQuestion()" class="bg-slate-200 text-slate-600 px-4 py-2 rounded-xl text-sm font-semibold disabled:opacity-50">
+                            <i class="fa-solid fa-chevron-left mr-1"></i> Sebelum
+                        </button>
+                        <button id="btn-next-q" onclick="nextQuestion()" class="bg-purple-600 text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-purple-700 transition">
+                            Selanjutnya <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Result Screen (Hidden by default) -->
+                <div id="quiz-result" class="hidden text-center space-y-6 py-6">
+                    <div class="w-24 h-24 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-extrabold text-3xl text-slate-800">Hasil Evaluasi Belajar</h3>
+                        <p class="text-slate-500 text-sm mt-1">Siswa SMA Negeri 46 Maluku Tengah</p>
+                    </div>
+
+                    <div class="max-w-xs mx-auto bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-2">
+                        <span class="text-xs text-slate-500 uppercase font-semibold">Skor Akhir Anda</span>
+                        <div id="quiz-score-num" class="font-heading text-5xl font-extrabold text-purple-600">0</div>
+                        <p id="quiz-category-badge" class="text-xs font-bold px-3 py-1 rounded-full inline-block bg-purple-200 text-purple-800">Kategori</p>
+                    </div>
+
+                    <div id="quiz-discussion-container" class="text-left space-y-4 max-h-80 overflow-y-auto p-4 bg-slate-50 rounded-2xl custom-scrollbar text-xs">
+                        <h4 class="font-bold text-slate-800 text-sm">Pembahasan Kuis:</h4>
+                        <!-- Dynamic discussion items -->
+                    </div>
+
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="restartQuiz()" class="bg-slate-200 text-slate-700 px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-300">
+                            <i class="fa-solid fa-rotate-left mr-2"></i> Ulangi Kuis
+                        </button>
+                        <button onclick="navTo('lkpd')" class="bg-indigo-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-indigo-700">
+                            Ke LKPD Digital <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: LKPD DIGITAL ================= -->
+        <section id="sec-lkpd" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-2xl text-slate-800">LKPD (Lembar Kerja Peserta Didik)</h2>
+                        <p class="text-xs text-indigo-600 font-semibold">Aktivitas Analisis Studi Kasus Kelompok / Mandiri</p>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50/60 border border-indigo-100 p-4 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-indigo-900 text-sm"><i class="fa-solid fa-bullhorn text-brand-orange mr-2"></i> Instruksi Pengerjaan LKPD:</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Bacalah skenario studi kasus aktivitas ekonomi lokal Maluku Tengah di bawah ini, lalu jawablah pertanyaan analisis yang diberikan secara kritis!
+                    </p>
+                </div>
+
+                <!-- Case Scenario -->
+                <div class="bg-slate-900 text-white p-6 rounded-2xl space-y-3">
+                    <span class="bg-yellow-400 text-slate-900 text-xs font-bold px-2.5 py-1 rounded">SKENARIO STUDI KASUS MALUKU TENGAH</span>
+                    <h4 class="font-bold text-lg text-yellow-300">Rantai Pasok Ikan Cakalang Asar Masohi</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        "Di Negeri Amahai, Nelayan Pak La Ode pergi melaut setiap jam 4 pagi menggunakan ketinting untuk menangkap ikan cakalang segar. Setelah mendarat, sebagian ikan dijual kepada Ibu Wa Nita yang mengolahnya dengan cara diasapi (Ikan Asar). Selanjutnya, Bapak Hasan yang bertindak sebagai pedagang pengumpul membawa 50 jepit ikan asar tersebut menggunakan angkutan umum menuju Pasar Binaiya Masohi untuk dijual kepada konsumen rumah tangga."
+                    </p>
+                </div>
+
+                <form id="form-lkpd" onsubmit="saveLKPD(event)" class="space-y-4 text-sm">
+                    <div class="space-y-2">
+                        <label class="font-bold text-slate-700">1. Analisis dan sebutkan siapa saja yang bertindak sebagai PRODUSEN beserta jenis kegiatan produksinya!</label>
+                        <textarea id="lkpd-1" rows="2" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-slate-700" placeholder="Jawaban Anda..." required></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-bold text-slate-700">2. Siapakah yang bertindak sebagai DISTRIBUTOR dan jenis saluran distribusi apa yang digunakan dalam skenario di atas?</label>
+                        <textarea id="lkpd-2" rows="2" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-slate-700" placeholder="Jawaban Anda..." required></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-bold text-slate-700">3. Menurut Anda, apa faktor yang dapat menghambat penyaluran ikan asar dari Amahai ke Pasar Masohi?</label>
+                        <textarea id="lkpd-3" rows="2" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-slate-700" placeholder="Jawaban Anda..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow transition">
+                        <i class="fa-solid fa-floppy-disk mr-2"></i> Simpan Hasil LKPD
+                    </button>
+                </form>
+
+                <div id="lkpd-saved-msg" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
+                    <div class="text-brand-green text-2xl"><i class="fa-solid fa-circle-check"></i></div>
+                    <h4 class="font-bold text-emerald-900">Hasil LKPD Berhasil Terekam!</h4>
+                    <p class="text-xs text-emerald-700">Jawaban LKPD Anda siap ditinjau pada menu Hasil & Sertifikat.</p>
+                </div>
+
+                <div class="flex justify-between items-center pt-2">
+                    <button onclick="navTo('kuis')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Kuis
+                    </button>
+                    <button onclick="navTo('refleksi')" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Ke Refleksi Belajar <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: REFLEKSI PEMBELAJARAN ================= -->
+        <section id="sec-refleksi" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-2xl text-slate-800">Refleksi Pembelajaran</h2>
+                        <p class="text-xs text-slate-500">Evaluasi Diri & Pengalaman Belajar Mandiri</p>
+                    </div>
+                </div>
+
+                <form id="form-refleksi" onsubmit="saveRefleksi(event)" class="space-y-4 text-sm">
+                    <div class="space-y-2">
+                        <label class="font-bold text-slate-700">1. Apa pengetahuan baru yang paling berkesan bagi Anda setelah mempelajari materi ini?</label>
+                        <textarea id="ref-1" rows="2" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue focus:outline-none text-slate-700" placeholder="Tuliskan di sini..." required></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-bold text-slate-700">2. Jelaskan kembali dengan bahasa sendiri perbedaan utama produksi, distribusi, dan konsumsi!</label>
+                        <textarea id="ref-2" rows="2" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue focus:outline-none text-slate-700" placeholder="Tuliskan di sini..." required></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-bold text-slate-700">3. Berikan 1 contoh kegiatan ekonomi di sekitar rumahmu di Maluku Tengah dan sebutkan peran pelakunya!</label>
+                        <textarea id="ref-3" rows="2" class="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue focus:outline-none text-slate-700" placeholder="Tuliskan di sini..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-green hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Simpan Refleksi Pembelajaran
+                    </button>
+                </form>
+
+                <div id="refleksi-saved-msg" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
+                    <div class="text-brand-green text-2xl"><i class="fa-solid fa-circle-check"></i></div>
+                    <h4 class="font-bold text-emerald-900">Refleksi Berhasil Disimpan!</h4>
+                    <p class="text-xs text-emerald-700">Terima kasih telah menyelesaikan seluruh tahapan media pembelajaran interaktif Ekonomi Kelas X ini.</p>
+                </div>
+
+                <div class="flex justify-between items-center pt-2">
+                    <button onclick="navTo('lkpd')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke LKPD
+                    </button>
+                    <button onclick="navTo('hasil')" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Lihat Hasil & Sertifikat <i class="fa-solid fa-award ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN: HASIL BELAJAR & SERTIFIKAT ================= -->
+        <section id="sec-hasil" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-100 space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-2xl text-slate-800">Hasil Belajar & Sertifikat</h2>
+                        <p class="text-xs text-slate-500">Rekapitulasi Nilai & Sertifikat Kelulusan Pembelajaran Digital</p>
+                    </div>
+                </div>
+
+                <!-- Input Name Card -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                    <label class="font-bold text-slate-800 text-sm block">Masukkan Nama Lengkap Peserta Didik:</label>
+                    <div class="flex gap-2">
+                        <input id="student-name-input" type="text" class="flex-grow p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold text-slate-800" placeholder="Contoh: Ahmad Risky" value="Peserta Didik X SMA">
+                        <button onclick="generateCertificate()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-5 py-3 rounded-xl text-sm transition">
+                            Update Sertifikat
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rekap Hasil Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-purple-50 p-4 rounded-2xl border border-purple-100 text-center">
+                        <span class="text-xs text-purple-700 font-semibold uppercase">Skor Kuis Evaluasi</span>
+                        <div id="summary-quiz-score" class="text-3xl font-extrabold text-purple-700 mt-1">0</div>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100 text-center">
+                        <span class="text-xs text-orange-700 font-semibold uppercase">Status Game Edukasi</span>
+                        <div id="summary-game-status" class="text-base font-bold text-orange-700 mt-2">Belum Selesai</div>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 text-center">
+                        <span class="text-xs text-emerald-700 font-semibold uppercase">Refleksi Belajar</span>
+                        <div id="summary-ref-status" class="text-base font-bold text-emerald-700 mt-2">Belum Diisi</div>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE DISPLAY BOX -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-slate-800 text-sm">Pratinjau Sertifikat Digital:</h4>
+                        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white font-semibold text-xs px-4 py-2 rounded-xl transition">
+                            <i class="fa-solid fa-print mr-1.5"></i> Cetak / Unduh PDF
+                        </button>
+                    </div>
+
+                    <div id="printable-certificate" class="bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-950 p-6 sm:p-10 rounded-3xl text-white border-4 border-yellow-400 relative overflow-hidden shadow-2xl">
+                        <!-- Frame Ornaments -->
+                        <div class="border-2 border-dashed border-yellow-400/40 p-6 sm:p-8 rounded-2xl text-center space-y-6 relative z-10">
+                            <!-- Header Cert -->
+                            <div class="space-y-2">
+                                <div class="text-xs uppercase tracking-widest text-yellow-300 font-bold">SMA NEGERI 46 MALUKU TENGAH</div>
+                                <h3 class="font-heading text-2xl sm:text-4xl font-extrabold tracking-wider text-white">SERTIFIKAT KELULUSAN</h3>
+                                <p class="text-xs text-blue-200">Media Pembelajaran Interaktif Digital Mata Pelajaran Ekonomi</p>
+                            </div>
+
+                            <div class="space-y-1">
+                                <p class="text-xs text-slate-300">Diberikan Kepada Peserta Didik:</p>
+                                <h2 id="cert-student-name" class="font-heading font-extrabold text-2xl sm:text-4xl text-yellow-400 underline tracking-wide">PESERTA DIDIK X SMA</h2>
+                            </div>
+
+                            <p class="text-xs text-slate-200 max-w-xl mx-auto leading-relaxed">
+                                Atas keberhasilan dalam menyelesaikan seluruh modul materi, game edukasi interaktif, LKPD digital, serta Kuis Evaluasi pada materi utama <strong class="text-yellow-300">"KEGIATAN EKONOMI (PRODUKSI, DISTRIBUSI & KONSUMSI)"</strong>.
+                            </p>
+
+                            <!-- Signatures Grid -->
+                            <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/20 text-xs">
+                                <div>
+                                    <p class="text-slate-400">Maluku Tengah</p>
+                                    <p class="text-slate-300 font-medium">Kepala SMAN 46 Maluku Tengah</p>
+                                    <div class="h-12 flex items-center justify-center font-cursive text-2xl text-yellow-300">Kepala Sekolah</div>
+                                    <p class="font-bold text-white">(...........................................)</p>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400">Guru Mata Pelajaran</p>
+                                    <p class="text-slate-300 font-medium">Ekonomi Kelas X</p>
+                                    <div class="h-12 flex items-center justify-center font-cursive text-2xl text-yellow-300">Racheldya N. Tupan</div>
+                                    <p class="font-bold text-white">Racheldya Nasmary Tupan, S.Pd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-2">
+                    <button onclick="navTo('refleksi')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Refleksi
+                    </button>
+                    <button onclick="navTo('menu')" class="bg-brand-blue hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm">
+                        Menu Utama <i class="fa-solid fa-house ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Media Pembelajaran Ekonomi Interaktif | <strong>Racheldya Nasmary Tupan, S.Pd.</strong> - SMAN 46 Maluku Tengah</p>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // State variables
+        let currentSection = 'sec-hero';
+        let visitedSections = new Set(['sec-hero']);
+        const totalSections = 9; // Expanded sections count
+
+        // Quiz Questions Data (15 items)
+        const quizData = [
+            {
+                q: "1. Kegiatan menciptakan atau menambah nilai guna suatu barang/jasa untuk memenuhi kebutuhan manusia dinamakan...",
+                options: ["Konsumsi", "Produksi", "Distribusi", "Investasi"],
+                ans: 1,
+                desc: "Produksi adalah kegiatan menciptakan atau menambah nilai guna suatu produk."
+            },
+            {
+                q: "2. Petani di Maluku Tengah mengolah pohon sagu menjadi pati sagu. Dalam kegiatan ekonomi, petani tersebut berperan sebagai...",
+                options: ["Distributor", "Konsumen", "Produsen", "Pengecer"],
+                ans: 2,
+                desc: "Petani yang mengolah pati sagu bertindak sebagai Produsen karena menghasilkan barang."
+            },
+            {
+                q: "3. Manakah di bawah ini yang merupakan contoh kegiatan distribusi di lingkungan sekitar?",
+                options: [
+                    "Memakan sagu lempeng saat sarapan",
+                    "Nelayan menangkap ikan di laut",
+                    "Pedagang membawa ikan dengan bodi menuju Pasar Masohi",
+                    "Penjahit membuat baju seragam sekolah"
+                ],
+                ans: 2,
+                desc: "Membawa barang dari produsen (nelayan) ke tempat penjualan (pasar) adalah kegiatan distribusi."
+            },
+            {
+                q: "4. Ibu Maria membeli 2 kg ikan cakalang di pasar untuk dimasak konsumsi keluarga. Tindakan Ibu Maria termasuk kegiatan...",
+                options: ["Produksi", "Konsumsi", "Distribusi", "Eksploitasi"],
+                ans: 1,
+                desc: "Membeli barang untuk langsung memenuhi kebutuhan makanan keluarga adalah Konsumsi."
+            },
+            {
+                q: "5. Berikut ini yang merupakan faktor produksi ALAM (SDA) khas dari wilayah Maluku adalah...",
+                options: ["Mesin pengolah kayu", "Kelapa dan hasil laut", "Uang modal usaha", "Keterampilan mengoperasikan perahu"],
+                ans: 1,
+                desc: "Kelapa dan hasil laut merupakan kekayaan alam alami (SDA)."
+            },
+            {
+                q: "6. (Literasi/Numerasi) Sebuah usaha ikan asin di Seram menghasilkan 100 kg ikan asin per hari. Biaya produksi total adalah Rp 1.000.000. Berapakah harga pokok produksi per kg?",
+                options: ["Rp 5.000 / kg", "Rp 10.000 / kg", "Rp 15.000 / kg", "Rp 20.000 / kg"],
+                ans: 1,
+                desc: "Harga pokok = Biaya Total / Jumlah Produksi = Rp 1.000.000 / 100 kg = Rp 10.000 / kg."
+            },
+            {
+                q: "7. Saluran distribusi di mana produsen menjual produknya langsung kepada konsumen tanpa perantara disebut...",
+                options: ["Distribusi Tidak Langsung", "Distribusi Langsung", "Distribusi Semilangsung", "Distribusi Sekunder"],
+                ans: 1,
+                desc: "Distribusi langsung terjadi tanpa menggunakan jasa pedagang perantara."
+            },
+            {
+                q: "8. Salah satu tujuan utama dari kegiatan produksi adalah...",
+                options: ["Menghabiskan barang", "Memenuhi kebutuhan konsumen & mencari keuntungan", "Menimbun barang di gudang", "Mengurangi nilai barang"],
+                ans: 1,
+                desc: "Tujuan produksi adalah memenuhi kebutuhan konsumen dan memperoleh laba bagi produsen."
+            },
+            {
+                q: "9. Pihak yang menetapkan kebijakan ekonomi, memungut pajak, dan menyediakan fasilitas sarana publik disebut...",
+                options: ["Rumah Tangga Konsumen (RTK)", "Rumah Tangga Produsen (RTP)", "Rumah Tangga Pemerintah (RTG)", "Masyarakat Luar Negeri"],
+                ans: 2,
+                desc: "Pemerintah (RTG) bertugas mengatur ekonomi dan menyediakan barang/fasilitas publik."
+            },
+            {
+                q: "10. Manakah yang BUKAN merupakan faktor yang memengaruhi tingkat konsumsi seseorang?",
+                options: ["Jumlah pendapatan", "Tingkat harga barang", "Gaya hidup dan selera", "Jumlah barang di gudang pabrik"],
+                ans: 3,
+                desc: "Jumlah barang di gudang pabrik adalah faktor penawaran produsen, bukan faktor konsumsi individu."
+            },
+            {
+                q: "11. (Numerasi) Seorang pedagang kelapa membeli 50 butir kelapa dari petani seharga Rp 3.000/butir dan menjualnya seharga Rp 5.000/butir. Berapa total keuntungan pedagang jika semua kelapa habis?",
+                options: ["Rp 50.000", "Rp 100.000", "Rp 150.000", "Rp 250.000"],
+                ans: 1,
+                desc: "Keuntungan per butir = 5.000 - 3.000 = 2.000. Total Untung = 50 x 2.000 = Rp 100.000."
+            },
+            {
+                q: "12. Rantai hubungan kegiatan ekonomi yang benar adalah...",
+                options: [
+                    "Distribusi -> Produksi -> Konsumsi",
+                    "Produksi -> Distribusi -> Konsumsi",
+                    "Konsumsi -> Produksi -> Distribusi",
+                    "Produksi -> Konsumsi -> Distribusi"
+                ],
+                ans: 1,
+                desc: "Urutan yang benar: Barang diproduksi dulu, lalu didistribusikan, lalu dikonsumsi."
+            },
+            {
+                q: "13. Contoh tenaga kerja terdidik yang mendukung kegiatan ekonomi adalah...",
+                options: ["Petik kelapa", "Sopir angkot", "Guru dan Dokter", "Kuli angkut pasar"],
+                ans: 2,
+                desc: "Tenaga kerja terdidik memerlukan pendidikan formal seperti Guru dan Dokter."
+            },
+            {
+                q: "14. Kegiatan masyarakat menggunakan minyak tanah atau listrik untuk memasak sagu dinamakan kegiatan...",
+                options: ["Konsumsi", "Produksi", "Distribusi", "Investasi"],
+                ans: 0,
+                desc: "Menggunakan bahan bakar/listrik untuk memenuhi kebutuhan memasak adalah kegiatan konsumsi."
+            },
+            {
+                q: "15. Apa dampak positif jika kegiatan distribusi barang di Maluku Tengah berjalan lancar dan cepat?",
+                options: [
+                    "Harga barang menjadi sangat mahal di konsumen",
+                    "Barang menjadi cepat rusak di jalan",
+                    "Kebutuhan masyarakat terpenuhi tepat waktu dan harga stabil",
+                    "Produsen berhenti membuat barang"
+                ],
+                ans: 2,
+                desc: "Distribusi lancar menjamin ketersediaan barang dan stabilitas harga bagi masyarakat."
+            }
+        ];
+
+        let userAnswers = new Array(quizData.length).fill(null);
+        let currentQIndex = 0;
+        let lastQuizScore = 0;
+
+        // Interactive Game Data
+        const gameItems = [
+            { id: 1, text: "Menanam Pohon Sagu", type: "produksi" },
+            { id: 2, text: "Mengangkut Ikan via Perahu", type: "distribusi" },
+            { id: 3, text: "Makan Popeda di Rumah", type: "konsumsi" },
+            { id: 4, text: "Membuat Ikan Asar", type: "produksi" },
+            { id: 5, text: "Menjual Hasil Bumi di Pasar", type: "distribusi" },
+            { id: 6, text: "Memakai Baju Batik", type: "konsumsi" }
+        ];
+
+        let gameState = {
+            produksi: [],
+            distribusi: [],
+            konsumsi: []
+        };
+
+        // Navigation Controller
+        function navTo(targetSectionId) {
+            const secId = 'sec-' + targetSectionId;
+            
+            // Hide all sections
+            document.querySelectorAll('main > section').forEach(sec => {
+                sec.classList.add('hidden');
+            });
+
+            // Show target section
+            const target = document.getElementById(secId);
+            if (target) {
+                target.classList.remove('hidden');
+                currentSection = secId;
+                visitedSections.add(secId);
+                updateProgress();
+            }
+
+            // Scroll to top smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startApp() {
+            document.getElementById('main-header').classList.remove('hidden');
+            navTo('menu');
+        }
+
+        function updateProgress() {
+            const progress = Math.min(Math.round((visitedSections.size / totalSections) * 100), 100);
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-percent').innerText = progress + '%';
+        }
+
+        // Material Sub-Tabs Controller
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('bg-brand-blue', 'text-white');
+                b.classList.add('bg-slate-100', 'text-slate-600');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+            activeBtn.classList.add('bg-brand-blue', 'text-white');
+        }
+
+        // Interactive Game Logic
+        function renderGame() {
+            const pool = document.getElementById('game-items-pool');
+            pool.innerHTML = '';
+
+            gameItems.forEach(item => {
+                const isPlaced = Object.values(gameState).some(arr => arr.includes(item.id));
+                if (!isPlaced) {
+                    const btn = document.createElement('button');
+                    btn.className = "bg-white hover:bg-slate-200 border border-slate-300 text-slate-800 font-semibold px-3 py-1.5 rounded-xl text-xs shadow-sm transition";
+                    btn.innerText = item.text;
+                    btn.onclick = () => selectGameItem(item);
+                    pool.appendChild(btn);
+                }
+            });
+
+            // Render buckets
+            ['produksi', 'distribusi', 'konsumsi'].forEach(type => {
+                const box = document.getElementById('box-' + type);
+                box.innerHTML = '';
+                gameState[type].forEach(itemId => {
+                    const found = gameItems.find(i => i.id === itemId);
+                    const tag = document.createElement('div');
+                    tag.className = "bg-white p-2 rounded-xl text-xs font-semibold shadow border border-slate-200 flex justify-between items-center";
+                    tag.innerHTML = `<span>${found.text}</span> <i class="fa-solid fa-xmark text-red-500 cursor-pointer ml-2" onclick="removeGameItem('${type}', ${itemId})"></i>`;
+                    box.appendChild(tag);
+                });
+            });
+
+            checkGameCompletion();
+        }
+
+        function selectGameItem(item) {
+            const action = prompt(`Pilih Kategori untuk "${item.text}":\n1. Produksi\n2. Distribusi\n3. Konsumsi\n(Ketik 1, 2, atau 3)`);
+            if (action === '1') placeItem('produksi', item.id);
+            else if (action === '2') placeItem('distribusi', item.id);
+            else if (action === '3') placeItem('konsumsi', item.id);
+        }
+
+        function placeItem(type, itemId) {
+            gameState[type].push(itemId);
+            renderGame();
+        }
+
+        function removeGameItem(type, itemId) {
+            gameState[type] = gameState[type].filter(id => id !== itemId);
+            renderGame();
+        }
+
+        function checkGameCompletion() {
+            const totalPlaced = gameState.produksi.length + gameState.distribusi.length + gameState.konsumsi.length;
+            const feedback = document.getElementById('game-feedback');
+
+            if (totalPlaced === gameItems.length) {
+                let correctCount = 0;
+                gameItems.forEach(item => {
+                    if (gameState[item.type].includes(item.id)) {
+                        correctCount++;
+                    }
+                });
+
+                feedback.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+                if (correctCount === gameItems.length) {
+                    feedback.classList.add('bg-green-100', 'text-green-800');
+                    feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Sempurna! Semua pengelompokan aktivitas ekonomi Anda BENAR!`;
+                    document.getElementById('summary-game-status').innerText = 'Selesai (100%)';
+                    document.getElementById('summary-game-status').className = 'text-base font-bold text-emerald-700 mt-2';
+                } else {
+                    feedback.classList.add('bg-red-100', 'text-red-800');
+                    feedback.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1"></i> Jawaban Benar: ${correctCount} dari ${gameItems.length}. Silakan periksa kembali posisi item.`;
+                }
+            } else {
+                feedback.classList.add('hidden');
+            }
+        }
+
+        // Kuis & Evaluasi Logic
+        function renderQuestion() {
+            const item = quizData[currentQIndex];
+            document.getElementById('current-q-num').innerText = currentQIndex + 1;
+            document.getElementById('quiz-question-text').innerText = item.q;
+
+            const optsContainer = document.getElementById('quiz-options-container');
+            optsContainer.innerHTML = '';
+
+            item.options.forEach((optText, idx) => {
+                const isSelected = userAnswers[currentQIndex] === idx;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-2xl border text-sm font-medium transition flex items-center justify-between ${
+                    isSelected 
+                    ? 'bg-purple-100 border-purple-500 text-purple-900 shadow-sm' 
+                    : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
+                }`;
+                btn.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <span class="w-7 h-7 rounded-full flex items-center justify-center border font-bold text-xs ${
+                            isSelected ? 'bg-purple-600 text-white border-purple-600' : 'bg-white border-slate-300 text-slate-500'
+                        }">${String.fromCharCode(65 + idx)}</span>
+                        <span>${optText}</span>
+                    </div>
+                    ${isSelected ? '<i class="fa-solid fa-circle-check text-purple-600"></i>' : ''}
+                `;
+                btn.onclick = () => selectAnswer(idx);
+                optsContainer.appendChild(btn);
+            });
+
+            document.getElementById('btn-prev-q').disabled = currentQIndex === 0;
+            const nextBtn = document.getElementById('btn-next-q');
+            if (currentQIndex === quizData.length - 1) {
+                nextBtn.innerHTML = 'Selesai & Lihat Skor <i class="fa-solid fa-check-double ml-1"></i>';
+                nextBtn.className = 'bg-brand-green text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition';
+            } else {
+                nextBtn.innerHTML = 'Selanjutnya <i class="fa-solid fa-chevron-right ml-1"></i>';
+                nextBtn.className = 'bg-purple-600 text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-purple-700 transition';
+            }
+        }
+
+        function selectAnswer(optIdx) {
+            userAnswers[currentQIndex] = optIdx;
+            renderQuestion();
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < quizData.length - 1) {
+                currentQIndex++;
+                renderQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quiz-body').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+
+            let score = 0;
+            const discussionContainer = document.getElementById('quiz-discussion-container');
+            discussionContainer.innerHTML = '<h4 class="font-bold text-slate-800 text-sm">Pembahasan Kuis:</h4>';
+
+            quizData.forEach((item, idx) => {
+                const uAns = userAnswers[idx];
+                const isCorrect = uAns === item.ans;
+                if (isCorrect) score += (100 / quizData.length);
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = `p-3 rounded-xl border ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`;
+                itemDiv.innerHTML = `
+                    <p class="font-bold text-slate-800">${idx + 1}. ${item.q}</p>
+                    <p class="mt-1 ${isCorrect ? 'text-green-700' : 'text-red-700'}">
+                        Jawaban Anda: <strong>${uAns !== null ? item.options[uAns] : 'Tidak diisi'}</strong> 
+                        ${isCorrect ? '<i class="fa-solid fa-check"></i>' : '(Salah)'}
+                    </p>
+                    ${!isCorrect ? `<p class="text-slate-600">Jawaban Benar: <strong>${item.options[item.ans]}</strong></p>` : ''}
+                    <p class="text-slate-500 italic mt-1">Pembahasan: ${item.desc}</p>
+                `;
+                discussionContainer.appendChild(itemDiv);
+            });
+
+            lastQuizScore = Math.round(score);
+            document.getElementById('quiz-score-num').innerText = lastQuizScore;
+            document.getElementById('summary-quiz-score').innerText = lastQuizScore;
+
+            const badge = document.getElementById('quiz-category-badge');
+            if (lastQuizScore >= 85) {
+                badge.innerText = 'Sangat Baik / Sangat Paham';
+                badge.className = 'text-xs font-bold px-3 py-1 rounded-full inline-block bg-green-200 text-green-900';
+            } else if (lastQuizScore >= 70) {
+                badge.innerText = 'Baik / Paham';
+                badge.className = 'text-xs font-bold px-3 py-1 rounded-full inline-block bg-blue-200 text-blue-900';
+            } else {
+                badge.innerText = 'Perlu Bimbingan / Remedial';
+                badge.className = 'text-xs font-bold px-3 py-1 rounded-full inline-block bg-orange-200 text-orange-900';
+            }
+        }
+
+        function restartQuiz() {
+            userAnswers = new Array(quizData.length).fill(null);
+            currentQIndex = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-body').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        // LKPD Save Logic
+        function saveLKPD(e) {
+            e.preventDefault();
+            document.getElementById('form-lkpd').classList.add('hidden');
+            document.getElementById('lkpd-saved-msg').classList.remove('hidden');
+        }
+
+        // Refleksi Save Logic
+        function saveRefleksi(e) {
+            e.preventDefault();
+            document.getElementById('form-refleksi').classList.add('hidden');
+            document.getElementById('refleksi-saved-msg').classList.remove('hidden');
+            document.getElementById('summary-ref-status').innerText = 'Telah Diisi';
+            document.getElementById('summary-ref-status').className = 'text-base font-bold text-emerald-700 mt-2';
+        }
+
+        // Generate Certificate Logic
+        function generateCertificate() {
+            const name = document.getElementById('student-name-input').value.trim();
+            if (name) {
+                document.getElementById('cert-student-name').innerText = name.toUpperCase();
+            }
+        }
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderGame();
+            renderQuestion();
+        }
+    </script>
+</body>
+</html>
